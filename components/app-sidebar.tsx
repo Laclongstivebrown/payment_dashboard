@@ -52,15 +52,12 @@ const data = {
     {
       title: "Overview",
       url: "/dashboard",
-      icon: (
-        <TerminalSquareIcon
-        />
-      ),
+      icon: TerminalSquareIcon,
       isActive: true,
     },
     {
       title: "Payments",
-      url: "/payments",
+      url: "/payment",
       icon: (
         <BotIcon
         />

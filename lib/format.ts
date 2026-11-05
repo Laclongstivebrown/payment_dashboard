@@ -1,5 +1,6 @@
 // src/lib/format.ts
-export const formatXAF = (n: number) => `${n.toLocaleString("fr-FR")} XAF`;
+export const formatXAF = (n: number) => `${n.toLocaleString("en-US")} XAF`;
 
-export const formatDate = (iso: string) =>
-  new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format(new Date(iso));
+export const formatDate = (iso: string) => 
+  new Intl.DateTimeFormat("en-US", { dateStyle: "medium" }).format(new Date(iso));
+
