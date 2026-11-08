@@ -12,7 +12,7 @@ export class NotFoundError extends Error {
 const delay = (ms = 600) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // DEV ONLY: change this to "error" or "empty" to see those states in the browser.
-const SIMULATE: "none" | "error" | "empty" = "none";
+const SIMULATE: "none" | "error" | "empty" = "error";
 
 export async function fetchPayments(): Promise<Payment[]> {
   await delay();
