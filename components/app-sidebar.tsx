@@ -18,14 +18,11 @@ import {
   AudioLinesIcon,
   TerminalIcon,
   TerminalSquareIcon,
-  // BotIcon,
-  // BookOpenIcon,
   Settings2Icon,
   FrameIcon,
   PieChartIcon,
   MapIcon,
   CircleDollarSignIcon,
-  // BanknoteArrowDown,
   CreditCardPlus
 } from "lucide-react";
 
