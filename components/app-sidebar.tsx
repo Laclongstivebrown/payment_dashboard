@@ -24,6 +24,9 @@ import {
   FrameIcon,
   PieChartIcon,
   MapIcon,
+  CircleDollarSignIcon,
+  BanknoteArrowDown,
+  CreditCardPlus
 } from "lucide-react";
 
 // This is sample data.
@@ -59,13 +62,13 @@ const data = {
     },
     {
       title: "Payments",
-      url: "/payment",
-      icon: <BotIcon />,
+      url: "/dashboard/payments",
+      icon: <CircleDollarSignIcon />,
     },
     {
       title: "New Payment",
-      url: "/payment/new",
-      icon: <BookOpenIcon />,
+      url: "/dashboard/payments/new",
+      icon: <  CreditCardPlus />,
     },
     {
       title: "Settings",

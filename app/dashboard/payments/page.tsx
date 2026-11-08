@@ -1,15 +1,18 @@
-import { ButtonComp } from '@/components/ButtonComp'
-import React from 'react'
+// src/app/dashboard/payments/page.tsx (server component: no "use client" needed)
+import Link from "next/link";
+import { PaymentList } from "@/components/payments/payment-list";
+import { buttonVariants } from "@/components/ui/button";
 
-const PaymentPage = () => {
+export default function PaymentsPage() {
   return (
-    <div>
-      <div className="flex  flex-row justify-between items-center gap-3 p-4">
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center justify-between gap-3">
         <h1 className="text-lg font-semibold">Payments</h1>
-        <ButtonComp onClick={() => console.log('Button clicked!')}>Add Payment</ButtonComp>
+        <Link href="/dashboard/payments/new" className={buttonVariants()}>
+          New payment
+        </Link>
       </div>
+      <PaymentList />
     </div>
-  )
+  );
 }
-
-export default PaymentPage
