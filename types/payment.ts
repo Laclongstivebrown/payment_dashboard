@@ -7,4 +7,5 @@ export interface Payment {
   amount: number; // XAF has no decimals, store whole francs
   status: PaymentStatus;
   date: string; // ISO string, e.g. "2026-10-01"
+  rejectionReason?: string;
 }

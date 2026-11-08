@@ -2,6 +2,13 @@
 import { payments } from "@/lib/mock-data";
 import type { Payment } from "@/types/payment";
 
+export class NotFoundError extends Error {
+  constructor(message = "Payment not found.") {
+    super(message);
+    this.name = "NotFoundError";
+  }
+}
+
 const delay = (ms = 600) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // DEV ONLY: change this to "error" or "empty" to see those states in the browser.
@@ -12,4 +19,12 @@ export async function fetchPayments(): Promise<Payment[]> {
   if (SIMULATE === "error") throw new Error("Could not load payments.");
   if (SIMULATE === "empty") return [];
   return payments;
+}
+
+export async function fetchPayment(id: string): Promise<Payment> {
+  await delay();
+  if (SIMULATE === "error") throw new Error("Could not load payment.");
+  const payment = payments.find((p) => p.id === id);
+  if (!payment) throw new NotFoundError();
+  return payment;
 }
