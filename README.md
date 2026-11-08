@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+ 
+# Payment Dashboard
 
-## Getting Started
+A responsive dashboard for tracking and creating payments, built with Next.js and TypeScript. Currently runs on a mock API; a Django REST Framework backend is planned.
 
-First, run the development server:
+**Live demo:** <add your Vercel URL here>
+
+![Overview screen](./docs/overview.png)
+
+## Features
+
+- Overview with totals and recent payments
+- Payments list with loading, error (with retry) and empty states
+- Payment detail page with a status timeline and rejection reason
+- Create payment form with validation and accessible error messages
+- Responsive layout: sidebar on desktop, collapsible on mobile
+- Dark theme
+
+## Tech stack
+
+- Next.js 16 (App Router) and React
+- TypeScript
+- Tailwind CSS and shadcn/ui
+- TanStack Query for data fetching and mutations
+
+## Getting started
+
+Requires Node.js 20.9 or newer.
 
 ```bash
+git clone <your-repo-url>
+cd payment_dashboard
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 (redirects to `/dashboard`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts: `npm run lint`, `npm run build`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+app/dashboard/        routes: overview, payments list, detail, new
+components/payments/  payment list, row, form, detail, timeline, status badge
+components/layout/    dashboard shell (sidebar + header)
+hooks/use-payments.ts React Query hooks
+lib/api.ts            mock API layer (swapped for the real backend later)
+types/payment.ts      shared types
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Design decisions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Mock API behind one file.** All data access goes through `lib/api.ts`, so connecting the real backend only changes that file.
+- **State handled explicitly.** Every data view has loading, error and empty states.
+- **Dashboard routes grouped under `/dashboard`** to make adding authentication straightforward later.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Roadmap
 
-## Deploy on Vercel
+- [ ] Django REST Framework backend
+- [ ] Authentication and protected routes
+- [ ] Edit and delete payments
+- [ ] Filters and search on the payments list
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
