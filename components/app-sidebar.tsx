@@ -27,7 +27,7 @@ const data = {
   user: {
     name: "Laclong Stive",
     email: "softruk@gmail.com",
-    avatar: "//my_picture.jpg",
+    avatar: "/my_picture.jpg",
   },
   teams: [
     {
