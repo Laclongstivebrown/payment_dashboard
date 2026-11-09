@@ -9,7 +9,10 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
+  SidebarGroup,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
 import {
@@ -18,9 +21,11 @@ import {
   TerminalIcon,
   TerminalSquareIcon,
   CircleDollarSignIcon,
-  CreditCardPlus
+  CreditCardPlus,
 } from "lucide-react";
- 
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+
 
 // This is sample data.
 const data = {
@@ -60,11 +65,27 @@ const data = {
     {
       title: "New Payment",
       url: "/dashboard/payments/new",
-      icon: <  CreditCardPlus />,
+      icon: <CreditCardPlus />,
     },
   ],
- 
 };
+
+function NavMainSkeleton() {
+  return (
+    <SidebarGroup>
+      <SidebarMenu>
+        {[0, 1, 2].map((i) => (
+          <SidebarMenuItem key={i}>
+            <div className="flex h-8 items-center gap-2 px-2">
+              <Skeleton className="size-4 rounded-md" />
+              <Skeleton className="h-4 flex-1" />
+            </div>
+          </SidebarMenuItem>
+        ))}
+      </SidebarMenu>
+    </SidebarGroup>
+  );
+}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -73,7 +94,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <Suspense fallback={<NavMainSkeleton />}>
+          <NavMain items={data.navMain} />
+        </Suspense>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
