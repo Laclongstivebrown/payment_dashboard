@@ -3,7 +3,6 @@
 import * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
 import { TeamSwitcher } from "@/components/team-switcher";
 import {
@@ -18,29 +17,26 @@ import {
   AudioLinesIcon,
   TerminalIcon,
   TerminalSquareIcon,
-  Settings2Icon,
-  FrameIcon,
-  PieChartIcon,
-  MapIcon,
   CircleDollarSignIcon,
   CreditCardPlus
 } from "lucide-react";
+ 
 
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "Laclong Stive",
+    email: "softruk@gmail.com",
+    avatar: "//my_picture.jpg",
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Softruk Inc",
       logo: <GalleryVerticalEndIcon />,
       plan: "Enterprise",
     },
     {
-      name: "Acme Corp.",
+      name: "Stive Corp.",
       logo: <AudioLinesIcon />,
       plan: "Startup",
     },
@@ -55,7 +51,6 @@ const data = {
       title: "Overview",
       url: "/dashboard",
       icon: <TerminalSquareIcon />,
-      isActive: true,
     },
     {
       title: "Payments",
@@ -67,47 +62,8 @@ const data = {
       url: "/dashboard/payments/new",
       icon: <  CreditCardPlus />,
     },
-    {
-      title: "Settings",
-      url: "#",
-      icon: <Settings2Icon />,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: <FrameIcon />,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: <PieChartIcon />,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: <MapIcon />,
-    },
-  ],
+ 
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -118,7 +74,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
