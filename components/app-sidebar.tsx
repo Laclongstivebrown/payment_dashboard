@@ -16,16 +16,12 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import {
-  GalleryVerticalEndIcon,
-  AudioLinesIcon,
-  TerminalIcon,
   TerminalSquareIcon,
   CircleDollarSignIcon,
   CreditCardPlus,
 } from "lucide-react";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-
 
 // This is sample data.
 const data = {
@@ -35,21 +31,11 @@ const data = {
     avatar: "/my_picture.jpg",
   },
   teams: [
-    {
-      name: "Softruk Inc",
-      logo: <GalleryVerticalEndIcon />,
-      plan: "Enterprise",
-    },
-    {
-      name: "Stive Corp.",
-      logo: <AudioLinesIcon />,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: <TerminalIcon />,
-      plan: "Free",
-    },
+    { 
+    name: "Softruk Payments",
+    logo: <CircleDollarSignIcon />,
+    plan: "Demo"
+   },
   ],
   navMain: [
     {
