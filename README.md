@@ -3,7 +3,7 @@
 
 A responsive dashboard for tracking and creating payments, built with Next.js and TypeScript. Currently runs on a mock API; a Django REST Framework backend is planned.
 
-**Live demo:**  
+**Live demo:**  https://payment-dashboard-peach.vercel.app/
 
 ![Overview screen](./docs/overview.png)
 
